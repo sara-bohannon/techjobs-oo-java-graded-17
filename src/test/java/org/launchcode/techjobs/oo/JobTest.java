@@ -41,4 +41,48 @@ public class JobTest {
 
         assertNotEquals(job1, job2);
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job = new Job();
+        String actual = job.toString();
+        String expected = System.lineSeparator();
+
+
+        assertTrue(actual.startsWith(expected));
+        assertTrue(actual.endsWith(expected));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String expected = System.lineSeparator() +
+                "ID: " + job.getId() + System.lineSeparator() +
+                "Name: Product tester" + System.lineSeparator() +
+                "Employer: ACME" + System.lineSeparator() +
+                "Location: Desert" + System.lineSeparator() +
+                "Position Type: Quality control" + System.lineSeparator() +
+                "Core Competency: Persistence" + System.lineSeparator() +
+                System.lineSeparator();
+
+        assertEquals(expected, job.toString());
+    }
+
+    @Test
+public void testToStringHandlesEmptyField() {
+        Job job = new Job("", new Employer("ACME"),new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String expected = System.lineSeparator() +
+                "ID: " + job.getId() + System.lineSeparator() +
+                "Name: Data not available" + System.lineSeparator() +
+                "Employer: ACME" + System.lineSeparator() +
+                "Location: Data not available" + System.lineSeparator() +
+                "Position Type: Quality control" + System.lineSeparator() +
+                "Core Competency: Persistence" + System.lineSeparator() +
+                System.lineSeparator();
+
+        assertEquals(expected, job.toString());
+
+    }
 }

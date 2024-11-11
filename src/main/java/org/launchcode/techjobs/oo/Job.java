@@ -13,6 +13,9 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
+    //  other five fields. The second constructor should also call the first in order to initialize
+    //  the 'id' field.
     public Job() {
         id = nextId;
         nextId++;
@@ -26,6 +29,9 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
+    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
+    //  and id.
 
     public int getId() {
         return id;
@@ -48,8 +54,6 @@ public class Job {
     }
 
     public Location getLocation() {
-
-
         return location;
     }
 
@@ -72,6 +76,8 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+// TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+    //  match.
 
     @Override
     public boolean equals(Object o) {
@@ -85,13 +91,31 @@ public class Job {
     public int hashCode() {
         return Objects.hashCode(id);
     }
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
+    @Override
+    public String toString() {
+        // Create a string to collect each line
+        StringBuilder jobList = new StringBuilder();
+        String lineSeparator = System.lineSeparator();
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
+        // Ensure the first and last line are newlines
+        jobList.append(lineSeparator);
+
+        // Add each field, checking for null and empty values
+        jobList.append("ID: " + this.id + lineSeparator);
+
+        // Check for null or empty values for Name, Employer, Location, etc.
+        jobList.append("Name: " + (this.name == null || this.name.isEmpty() ? "Data not available" : this.name) + lineSeparator);
+        jobList.append("Employer: " + (this.employer == null || this.employer.getValue().isEmpty() ? "Data not available" : this.employer.getValue()) + lineSeparator);
+        jobList.append("Location: " + (this.location == null || this.location.getValue().isEmpty() ? "Data not available" : this.location.getValue()) + lineSeparator);
+        jobList.append("Position Type: " + (this.positionType == null || this.positionType.getValue().isEmpty() ? "Data not available" : this.positionType.getValue()) + lineSeparator);
+        jobList.append("Core Competency: " + (this.coreCompetency == null || this.coreCompetency.getValue().isEmpty() ? "Data not available" : this.coreCompetency.getValue()) + lineSeparator);
+
+
+        // Append the final newline
+        jobList.append(lineSeparator);
+
+        return jobList.toString();
+    }
 }
+
