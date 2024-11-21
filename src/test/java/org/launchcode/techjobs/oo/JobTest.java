@@ -47,8 +47,6 @@ public class JobTest {
         Job job = new Job();
         String actual = job.toString();
         String expected = System.lineSeparator();
-
-
         assertTrue(actual.startsWith(expected));
         assertTrue(actual.endsWith(expected));
     }

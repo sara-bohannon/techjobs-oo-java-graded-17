@@ -2,9 +2,12 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
+
 public class Job {
 
-    private int id;
+    private final int id;
     private static int nextId = 1;
 
     private String name;
@@ -94,28 +97,22 @@ public class Job {
 
     @Override
     public String toString() {
-        // Create a string to collect each line
+
         StringBuilder jobList = new StringBuilder();
         String lineSeparator = System.lineSeparator();
 
-        // Ensure the first and last line are newlines
         jobList.append(lineSeparator);
-
-        // Add each field, checking for null and empty values
         jobList.append("ID: " + this.id + lineSeparator);
-
-        // Check for null or empty values for Name, Employer, Location, etc.
         jobList.append("Name: " + (this.name == null || this.name.isEmpty() ? "Data not available" : this.name) + lineSeparator);
         jobList.append("Employer: " + (this.employer == null || this.employer.getValue().isEmpty() ? "Data not available" : this.employer.getValue()) + lineSeparator);
         jobList.append("Location: " + (this.location == null || this.location.getValue().isEmpty() ? "Data not available" : this.location.getValue()) + lineSeparator);
         jobList.append("Position Type: " + (this.positionType == null || this.positionType.getValue().isEmpty() ? "Data not available" : this.positionType.getValue()) + lineSeparator);
         jobList.append("Core Competency: " + (this.coreCompetency == null || this.coreCompetency.getValue().isEmpty() ? "Data not available" : this.coreCompetency.getValue()) + lineSeparator);
 
-
-        // Append the final newline
         jobList.append(lineSeparator);
 
         return jobList.toString();
     }
 }
+
 
