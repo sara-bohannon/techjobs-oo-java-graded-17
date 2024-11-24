@@ -5,28 +5,28 @@ import java.util.Objects;
 public class PositionType extends JobField {
 
     public PositionType(String value) {
-        super(value); // Calls the constructor of JobField to handle the ID assignment
+        super(value);
     }
 
-    // Custom toString method that returns the value of the PositionType
+
     @Override
     public String toString() {
-        return getValue(); // Returns the value field as a string representation
+        return getValue();
     }
 
-    // Custom equals method comparing PositionType objects by their ID
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof PositionType)) return false;
         PositionType that = (PositionType) o;
-        return getId() == that.getId(); // Objects are equal if they have the same ID
+        return getId() == that.getId();
     }
 
-    // Custom hashCode method based on the ID
+
     @Override
     public int hashCode() {
-        return Objects.hash(getId()); // Hashcode is based on the ID
+        return Objects.hash(getId());
     }
 }
 

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Location extends JobField {
     public Location(String value) {
-        super(value); // Calls the constructor of JobField to handle the ID assignment
+        super(value);
     }
 }
 

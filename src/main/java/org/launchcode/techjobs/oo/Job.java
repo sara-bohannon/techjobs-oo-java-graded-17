@@ -4,7 +4,6 @@ import java.util.Objects;
 
 import static java.lang.System.lineSeparator;
 
-
 public class Job {
 
     private final int id;
@@ -20,7 +19,7 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
     public Job() {
-        id = nextId;
+        this.id = nextId;
         nextId++;
     }
 
@@ -107,12 +106,10 @@ public class Job {
         jobList.append("Employer: " + (this.employer == null || this.employer.getValue().isEmpty() ? "Data not available" : this.employer.getValue()) + lineSeparator);
         jobList.append("Location: " + (this.location == null || this.location.getValue().isEmpty() ? "Data not available" : this.location.getValue()) + lineSeparator);
         jobList.append("Position Type: " + (this.positionType == null || this.positionType.getValue().isEmpty() ? "Data not available" : this.positionType.getValue()) + lineSeparator);
-        jobList.append("Core Competency: " + (this.coreCompetency == null || this.coreCompetency.getValue().isEmpty() ? "Data not available" : this.coreCompetency.getValue()) + lineSeparator);
+        jobList.append("Core Competency: " + (this.coreCompetency == null || this.coreCompetency.getValue().isEmpty() ? "Data not available" : this.coreCompetency.getValue()));
 
         jobList.append(lineSeparator);
 
         return jobList.toString();
     }
 }
-
-

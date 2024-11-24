@@ -61,14 +61,14 @@ public class JobTest {
                 "Employer: ACME" + System.lineSeparator() +
                 "Location: Desert" + System.lineSeparator() +
                 "Position Type: Quality control" + System.lineSeparator() +
-                "Core Competency: Persistence" + System.lineSeparator() +
+                "Core Competency: Persistence" +
                 System.lineSeparator();
 
         assertEquals(expected, job.toString());
     }
 
     @Test
-public void testToStringHandlesEmptyField() {
+    public void testToStringHandlesEmptyField() {
         Job job = new Job("", new Employer("ACME"),new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         String expected = System.lineSeparator() +
@@ -77,7 +77,7 @@ public void testToStringHandlesEmptyField() {
                 "Employer: ACME" + System.lineSeparator() +
                 "Location: Data not available" + System.lineSeparator() +
                 "Position Type: Quality control" + System.lineSeparator() +
-                "Core Competency: Persistence" + System.lineSeparator() +
+                "Core Competency: Persistence"  +
                 System.lineSeparator();
 
         assertEquals(expected, job.toString());
